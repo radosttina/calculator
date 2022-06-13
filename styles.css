@@ -263,3 +263,9 @@ body[data-theme="purple"] {
     row-gap: 0.75rem;
   }
 }
+
+@media screen and (max-width: 740px) and (orientation: landscape) {
+  body {
+    overflow: visible;
+  }
+}
