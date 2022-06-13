@@ -10,6 +10,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: var(--background1);
+  overflow: hidden;
 }
 
 body * {
@@ -251,4 +252,14 @@ body[data-theme="purple"] {
   right: 0.625rem;
   overflow-y: hidden;
   overflow-x: scroll;
+}
+
+@media screen and (max-width: 440px) {
+  .calculator .keyboard {
+    padding: 1rem;
+    grid-template-columns: 3.5rem 3.5rem 3.5rem 3.5rem;
+    grid-template-rows: 2.5rem 2.5rem 2.5rem 2.5rem 2.5rem;
+    column-gap: 0.75rem;
+    row-gap: 0.75rem;
+  }
 }
