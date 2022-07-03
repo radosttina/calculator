@@ -28,8 +28,11 @@ const onCalculateResult = () => {
   );
   const result = calculateStringEquation(sanitizedCalculation);
 
-  calculation = result;
-  updateDisplay(calculateStringEquation(result));
+  updateDisplay(result);
+
+  // reset the calculation (without updating the display)
+  // so that the next user input will initialize a new calculation
+  calculation = "";
 };
 
 const onDeleteLastCharacted = () => {
