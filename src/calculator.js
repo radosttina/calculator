@@ -1,38 +1,18 @@
 import {
-  NUMBERS,
-  OPERATION_SYMBOLS,
   RESULT_KEYS,
   DELETE_KEY,
+  NUMBERS,
+  OPERATION_SYMBOLS,
 } from "./constants";
 
 import {
-  isSpecialSymbol,
-  shouldOverwriteLastOperation,
+  addSymbolToEquation,
   updateDisplay,
   calculateStringEquation,
 } from "./utils.js";
 
 const resultElement = document.getElementById("result");
 let calculation = "";
-
-const onEnterInput = (inputValue) => {
-  if (![...NUMBERS, ...OPERATION_SYMBOLS].includes(inputValue)) {
-    return;
-  }
-
-  // don't allow the first symbol to be special symbol
-  if (!calculation.length && isSpecialSymbol(inputValue)) {
-    return;
-  }
-
-  if (shouldOverwriteLastOperation(calculation, inputValue)) {
-    calculation = calculation.slice(0, calculation.length - 1) + inputValue;
-  } else {
-    calculation += inputValue;
-  }
-
-  updateDisplay(resultElement, calculation);
-};
 
 const onKeyboardInput = (e) => {
   const inputValue = e.key;
@@ -44,22 +24,24 @@ const onKeyboardInput = (e) => {
 
   if (inputValue === DELETE_KEY) {
     onDeleteLastCharacter();
+    return;
   }
 
-  onEnterInput(e.key);
+  if ([...NUMBERS, ...OPERATION_SYMBOLS].includes(inputValue)) {
+    calculation = addSymbolToEquation(calculation, e.key);
+    updateDisplay(resultElement, calculation);
+  }
 };
 
 const onVirtualCalculatorInput = (e) => {
-  onEnterInput(e.target.textContent);
+  calculation = addSymbolToEquation(calculation, e.target.textContent);
+  updateDisplay(resultElement, calculation);
 };
 
 const onCalculateResult = () => {
   // remove symbols other than number and arithmetic operations
-  const sanitizedCalculation = calculation.replaceAll(
-    /(?!-)[^0-9.+*/\-=]/g,
-    ""
-  );
-  const result = calculateStringEquation(sanitizedCalculation);
+  calculation.replaceAll(/(?!-)[^0-9.+*/\-=]/g, "");
+  const result = calculateStringEquation(calculation);
 
   // reset the calculation (without updating the display)
   // so that the next user input will initialize a new calculation
