@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -11,7 +12,6 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-theme="blue">
     <div class="calculator">
@@ -62,27 +62,27 @@
         <div id="result">0</div>
       </section>
       <section class="keyboard">
-        <button onclick="ononEnterInput(event)">7</button>
-        <button onclick="onEnterInput(event)">8</button>
-        <button onclick="onEnterInput(event)">9</button>
+        <button onclick="ononVirtualCalculatorInput(event)">7</button>
+        <button onclick="onVirtualCalculatorInput(event)">8</button>
+        <button onclick="onVirtualCalculatorInput(event)">9</button>
         <button
           onclick="onDeleteLastCharacted()"
           class="blue-button small-font-size"
         >
           DEL
         </button>
-        <button onclick="onEnterInput(event)">4</button>
-        <button onclick="onEnterInput(event)">5</button>
-        <button onclick="onEnterInput(event)">6</button>
-        <button onclick="onEnterInput(event)">+</button>
-        <button onclick="onEnterInput(event)">1</button>
-        <button onclick="onEnterInput(event)">2</button>
-        <button onclick="onEnterInput(event)">3</button>
-        <button onclick="onEnterInput(event)">-</button>
-        <button onclick="onEnterInput(event)">.</button>
-        <button onclick="onEnterInput(event)">0</button>
-        <button onclick="onEnterInput(event)">/</button>
-        <button onclick="onEnterInput(event)">*</button>
+        <button onclick="onVirtualCalculatorInput(event)">4</button>
+        <button onclick="onVirtualCalculatorInput(event)">5</button>
+        <button onclick="onVirtualCalculatorInput(event)">6</button>
+        <button onclick="onVirtualCalculatorInput(event)">+</button>
+        <button onclick="onVirtualCalculatorInput(event)">1</button>
+        <button onclick="onVirtualCalculatorInput(event)">2</button>
+        <button onclick="onVirtualCalculatorInput(event)">3</button>
+        <button onclick="onVirtualCalculatorInput(event)">-</button>
+        <button onclick="onVirtualCalculatorInput(event)">.</button>
+        <button onclick="onVirtualCalculatorInput(event)">0</button>
+        <button onclick="onVirtualCalculatorInput(event)">/</button>
+        <button onclick="onVirtualCalculatorInput(event)">*</button>
         <button
           onclick="onResetCalculation()"
           class="long-button-2x blue-button small-font-size"
@@ -98,5 +98,4 @@
       </section>
     </div>
   </body>
-  <script src="src/index.js"></script>
 </html>
