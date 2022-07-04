@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu"
+      rel="stylesheet"
+    />
+  <script defer src="/main.js"></script></head>
+  <body data-theme="blue">
+    <div class="calculator">
+      <header>
+        <h1>calc</h1>
+        <div class="switch">
+          <span class="switch-label">THEME</span>
+          <div class="switch-control">
+            <label for="theme-blue">1</label>
+            <label for="theme-green">2</label>
+            <label for="theme-purple">3</label>
+            <span class="checkbox">
+              <input
+                id="theme-blue"
+                data-theme="blue"
+                onclick="onThemeChange()"
+                name="theme"
+                type="radio"
+                checked
+              />
+              <span class="visual-radio"></span>
+            </span>
+            <span class="checkbox">
+              <input
+                id="theme-green"
+                data-theme="green"
+                onclick="onThemeChange()"
+                name="theme"
+                type="radio"
+              />
+              <span class="visual-radio"></span>
+            </span>
+            <span class="checkbox"
+              ><input
+                id="theme-purple"
+                data-theme="purple"
+                onclick="onThemeChange()"
+                name="theme"
+                type="radio"
+              />
+              <span class="visual-radio"></span>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <section class="display">
+        <div id="result">0</div>
+      </section>
+      <section class="keyboard">
+        <button onclick="ononVirtualCalculatorInput(event)">7</button>
+        <button onclick="onVirtualCalculatorInput(event)">8</button>
+        <button onclick="onVirtualCalculatorInput(event)">9</button>
+        <button
+          onclick="onDeleteLastCharacted()"
+          class="blue-button small-font-size"
+        >
+          DEL
+        </button>
+        <button onclick="onVirtualCalculatorInput(event)">4</button>
+        <button onclick="onVirtualCalculatorInput(event)">5</button>
+        <button onclick="onVirtualCalculatorInput(event)">6</button>
+        <button onclick="onVirtualCalculatorInput(event)">+</button>
+        <button onclick="onVirtualCalculatorInput(event)">1</button>
+        <button onclick="onVirtualCalculatorInput(event)">2</button>
+        <button onclick="onVirtualCalculatorInput(event)">3</button>
+        <button onclick="onVirtualCalculatorInput(event)">-</button>
+        <button onclick="onVirtualCalculatorInput(event)">.</button>
+        <button onclick="onVirtualCalculatorInput(event)">0</button>
+        <button onclick="onVirtualCalculatorInput(event)">/</button>
+        <button onclick="onVirtualCalculatorInput(event)">*</button>
+        <button
+          onclick="onResetCalculation()"
+          class="long-button-2x blue-button small-font-size"
+        >
+          RESET
+        </button>
+        <button
+          onclick="onCalculateResult()"
+          class="long-button-2x red-button small-font-size"
+        >
+          =
+        </button>
+      </section>
+    </div>
+  </body>
+</html>
