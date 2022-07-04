@@ -17,7 +17,7 @@ const onEnterInput = (inputValue) => {
   }
 
   if (shouldOverwriteLastOperation(calculation, inputValue)) {
-    calculation = calculation.replace(/[.+*/\-=]$/g, inputValue);
+    calculation = calculation.slice(0, calculation.length - 1) + inputValue;
   } else {
     calculation += inputValue;
   }
